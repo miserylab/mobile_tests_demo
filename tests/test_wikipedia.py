@@ -6,8 +6,10 @@ from selene import have
 from selene.support.shared import browser
 from allure import step
 
+from utils import attach
 
-@allure.title('Wikipedia search QA')
+
+# @allure.title('Wikipedia search QA')
 def test_wikipedia(setup_browser):
 
     with step('Search for content'):
@@ -17,3 +19,4 @@ def test_wikipedia(setup_browser):
 
     with step('Content should be found'):
         browser.all((AppiumBy.CLASS_NAME, "android.widget.TextView")).should(have.size_greater_than(0))
+    attach.add_video(browser)

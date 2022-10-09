@@ -44,5 +44,5 @@ def setup_browser():
     )
     browser.config.timeout = 4
     yield setup_browser
-    attach.add_video(browser)
+    # attach.add_video(browser)
     browser.quit()
