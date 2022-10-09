@@ -9,7 +9,9 @@ from allure import step
 from utils import attach
 
 
-# @allure.title('Wikipedia search QA')
+
+@allure.tag('mobile')
+@allure.title('Wikipedia search QA')
 def test_wikipedia(setup_browser):
 
     with step('Search for content'):

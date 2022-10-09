@@ -10,7 +10,8 @@ from selene.support.shared import browser
 from utils import attach
 
 
-# @allure.title('Wikipedia search BrowserStack')
+@allure.tag('mobile')
+@allure.title('Wikipedia search BrowserStack')
 def test_search_browserstack(setup_browser):
     with step('Search for content'):
         browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
