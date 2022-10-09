@@ -1,18 +1,19 @@
 __author__ = 'miserylab'
 
+import allure
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import have
 from selene.support.shared import browser
 from allure import step
 
 
-
-def test_search(setup_browser):
+@allure.title('Wikipedia search QA')
+def test_wikipedia(setup_browser):
 
     with step('Search for content'):
-        browser.element((AppiumBy.ACCESSIBILITY_ID, 'Search Wikipedia')).click()
+        browser.element((AppiumBy.ACCESSIBILITY_ID, '	org.wikipedia.alpha:id/largeLabel')).click()
         browser.element((AppiumBy.ID, 'org.wikipedia.alpha:id/search_src_text')).type(
-            'BrowserStack'
+            'QA'
         )
 
     with step('Content should be found'):

@@ -9,7 +9,7 @@ from utils.attach import add_video
 
 
 @allure.title('Wikipedia search BrowserStack')
-def test(setup_browser):
+def test_search_browserstack(setup_browser):
     with step('Search for content'):
         browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
 
@@ -17,5 +17,4 @@ def test(setup_browser):
 
     with step('Content should be found'):
         browser.all((AppiumBy.CLASS_NAME, "android.widget.TextView")).should(have.size_greater_than(0))
-    add_video(browser)
 
