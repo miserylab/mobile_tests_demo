@@ -11,13 +11,9 @@ from allure import step
 def test_wikipedia(setup_browser):
 
     with step('Search for content'):
-        browser.element((AppiumBy.ACCESSIBILITY_ID, '	org.wikipedia.alpha:id/largeLabel')).click()
-        browser.element((AppiumBy.ID, 'org.wikipedia.alpha:id/search_src_text')).type(
-            'QA'
-        )
+        browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
+
+        browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type("QA")
 
     with step('Content should be found'):
-        browser.all(
-            (AppiumBy.ID, 'org.wikipedia.alpha:id/page_list_item_title')
-        ).should(have.size_greater_than(0))
-
+        browser.all((AppiumBy.CLASS_NAME, "android.widget.TextView")).should(have.size_greater_than(0))
